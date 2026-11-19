@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio | Creative Developer</title>
+    <title>Jared T. Acuyan | Aspiring Web Developer</title>
+    <meta name="description" content="Portfolio of Jared T. Acuyan, an IT student and aspiring web developer from Kabankalan City, Philippines.">
 
     <link rel="stylesheet" href="styles/style.css">
-    <!--fonts-->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-</head>
+
 <body>
-     <header>
+
+    <!-- ============ NAVIGATION ============ -->
+    <header>
+        <input type="checkbox" id="menu" class="menu-toggle" aria-label="Toggle menu">
+
         <nav class="navbar">
-            
-            <a href="#home" class="logo">JA<span>RED</span></a>
+            <a href="#home" class="logo">JA<span>.</span></a>
+
+            <label for="menu" class="burger" aria-hidden="true"><i></i><i></i><i></i></label>
 
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -26,140 +32,253 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
-            <a href="#contact" class="nav-button">Let's Talk ↗</a>
+            <a href="#contact" class="nav-button">Let's talk</a>
         </nav>
     </header>
 
-     <section class="hero" id="home">
+    <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
 
         <div class="hero-content">
+            <p class="status"><span class="status-dot"></span>Open for collaborations and projects</p>
 
-            <p class="eyebrow">
-                <span class="status-dot"></span>
-                AVAILABLE FOR OPPORTUNITIES
-            </p>
-
-            <!-- PUT YOUR NAME HERE -->
             <h1>
-                Hi, I'm <span class="gradient-text">Jared T. Acuyan.</span>
-                <br>
-                I create things
-                <br>
-                for the <span class="outline-text">digital world.</span>
+                I'm Jared Acuyan.
+                <span class="line-sky">I build for the web.</span>
             </h1>
 
-            <!-- WRITE A SHORT INTRODUCTION ABOUT YOURSELF -->
             <p class="hero-description">
-                I'm a passionate aspiring developer and creative thinker
-                who enjoys transforming ideas into meaningful digital
-                experiences through design and technology.
+                IT student at Kabankalan Catholic College. Turning ideas into creation.
             </p>
 
             <div class="hero-buttons">
-                <a href="#projects" class="primary-button">Explore My Work ↗</a>
-                <a href="#about" class="secondary-button">More About Me</a>
+                <a href="#projects" class="btn btn-solid">See my work</a>
+                <a href="#about" class="btn btn-ghost">About me</a>
             </div>
 
-            <div class="hero-info">
-                <!-- CHANGE THESE DETAILS -->
-                <div>
-                    <span class="info-label">BASED IN</span>
-                    <p>Kabankalan City, Philippines</p>
-                </div>
-
-                <div>
-                    <span class="info-label">SPECIALIZATION</span>
-                    <p>Web Development</p>
-                    <p>Software Development</p>
-                </div>
-            </div>
-
+            <dl class="hero-info">
+                <div><dt>Based in</dt><dd>Kabankalan City, Philippines</dd></div>
+                <div><dt>Focus</dt><dd>Web and software development</dd></div>
+            </dl>
         </div>
 
-        <div class="hero-image">
-            <div class="image-glow"></div>
-<img src="asset/profile.jpg" alt="My Profile Photo">
+        <div class="hero-visual">
+            <div class="photo-frame">
+                <img src="asset/profile.jpg" alt="Portrait of Jared Acuyan">
+            </div>
 
-            <div class="floating-card">
-                <span>✦</span>
-                <div>
-                    <small>CREATIVE MINDSET</small>
-                    <p>Always Learning. Always Creating. Surpass your limits</p>
-                </div>
+
+            <div class="code-window" aria-label="Short profile written as code">
+                <div class="code-bar"><i></i><i></i><i></i><span>jared.js</span></div>
+                <pre><code><span class="ln" style="--n:22;--d:.3s"><b class="k">const</b> jared = {</span>
+<span class="ln" style="--n:26;--d:1.4s">  role: <b class="s">"Web Developer"</b>,</span>
+<span class="ln" style="--n:28;--d:2.6s">  school: <b class="s">"KCC, BSIT"</b>,</span>
+<span class="ln" style="--n:26;--d:3.8s">  mindset: <b class="s">"Keep going"</b>,</span>
+<span class="ln last" style="--n:3;--d:5s">};</span></code></pre>
             </div>
         </div>
-
-        <div class="hero-decoration">01 / WELCOME</div>
 
     </section>
+
+
+    <!-- ============ ABOUT ============ -->
     <section class="section about-section" id="about">
 
         <div class="section-heading">
-            <span class="section-number">01 — ABOUT ME</span>
-            <h2>A little bit <span class="gradient-text">about myself.</span></h2>
+            <h2>About me</h2>
+            <p>Curious first, then careful. I like understanding how things work before I build them.</p>
         </div>
 
         <div class="about-content">
 
             <div class="about-left">
-                <h3>
-                    Turning curiosity into
-                    <span class="gradient-text">creation.</span>
-                </h3>
+                <h3>Turning curiosity into things people can use.</h3>
             </div>
 
             <div class="about-right">
-
-                <!--BIOGRAPHY -->
                 <p>
-                    Hello! I'm Jared Acuyan, an aspiring web developer
-                    with a passion for technology, creativity, and
-                    continuous learning.
-
-                    I enjoy exploring new technologies, solving
+                    Hello! I'm Jared, an aspiring web developer who enjoys exploring
+                    new technologies, solving problems, and building projects that
+                    balance function with good design.
+                </p>
+                <p>
+                    I'm taking up a Bachelor of Science in Information Technology at
+                    Kabankalan Catholic College, I enjoy exploring new technologies, solving
                     problems, and creating projects that combine
                     functionality with appealing design.
                 </p>
-
-                <!--EDUCATIONAL BACKGROUND -->
-                <p>
-                    Currently, I am studying at Kabankalan Catholic College,
-                    taking up Bachelor of Science in Information technology. My journey in
-                    technology has helped me develop my technical
-                    abilities, creativity and problem-solving skills.
-                </p>
-
-                <!--resume-->
-                <a href="asset/resume.pdf" class="text-link" target="_blank">
-                    View My Resume ↗
-                </a>
-
+                <a href="asset/resume.pdf" class="text-link" target="_blank" rel="noopener">View my resume</a>
             </div>
 
         </div>
 
         <div class="about-stats">
+            <div class="stat"><h3>5<span>+</span></h3><p>Years learning</p></div>
+            <div class="stat"><h3>10<span>+</span></h3><p>Projects created</p></div>
+            <div class="stat"><h3>10<span>+</span></h3><p>Technologies explored</p></div>
+        </div>
 
-          
-            <div class="stat">
-                <h3>5<span>+</span></h3>
-                <p>Years Learning</p>
-            </div>
+    </section>
 
-            <div class="stat">
-                <h3>10<span>+</span></h3>
-                <p>Projects Created</p>
-            </div>
 
-            <div class="stat">
-                <h3>10<span>+</span></h3>
-                <p>Technologies Explored</p>
-            </div>
+    <!-- ============ SKILLS ============ -->
+    <section class="section skills-section" id="skills">
+
+        <div class="section-heading">
+            <h2>Skills and tools</h2>
+            <p>What I use to bring ideas to life. Hover or tap a card to see it light up.</p>
+        </div>
+
+        <!-- Adjust each --lvl value (0% to 100%) to match your real comfort level -->
+        <div class="skills-grid">
+
+            <article class="skill-card" tabindex="0">
+                <span class="skill-icon">&lt;/&gt;</span>
+                <h3>HTML</h3>
+                <p>Web structure</p>
+                <div class="bar" style="--lvl:90%"></div>
+            </article>
+
+            <article class="skill-card" tabindex="0">
+                <span class="skill-icon">{ }</span>
+                <h3>CSS</h3>
+                <p>Web styling</p>
+                <div class="bar" style="--lvl:85%"></div>
+            </article>
+
+            <article class="skill-card" tabindex="0">
+                <span class="skill-icon">JS</span>
+                <h3>JavaScript</h3>
+                <p>Web interactivity</p>
+                <div class="bar" style="--lvl:70%"></div>
+            </article>
+
+            <article class="skill-card" tabindex="0">
+                <span class="skill-icon">C+</span>
+                <h3>C++</h3>
+                <p>Programming</p>
+                <div class="bar" style="--lvl:70%"></div>
+            </article>
+
+            <article class="skill-card" tabindex="0">
+                <span class="skill-icon">AP</span>
+                <h3>Adobe Photoshop</h3>
+                <p>Graphic designing</p>
+                <div class="bar" style="--lvl:75%"></div>
+            </article>
+
+            <article class="skill-card" tabindex="0">
+                <span class="skill-icon">Git</span>
+                <h3>Git and GitHub</h3>
+                <p>Version control</p>
+                <div class="bar" style="--lvl:65%"></div>
+            </article>
 
         </div>
 
     </section>
-    
-    
+
+
+    <!-- ============ PROJECTS (filter works with CSS only) ============ -->
+    <section class="section projects-section" id="projects">
+
+        <div class="section-heading">
+            <h2>Things I've made</h2>
+            <p>Personal, academic, and creative projects.</p>
+        </div>
+
+        <div class="projects-wrap">
+
+            <input type="radio" name="filter" id="f-all" checked>
+            <input type="radio" name="filter" id="f-web">
+            <input type="radio" name="filter" id="f-design">
+            <input type="radio" name="filter" id="f-app">
+
+            <div class="filters">
+                <label for="f-all">All</label>
+                <label for="f-web">Web</label>
+                <label for="f-design">Design</label>
+                <label for="f-app">Apps</label>
+            </div>
+
+            <div class="projects-grid">
+
+                <article class="project-card web">
+                    <div class="project-image">
+                        <img src="asset/project1.png" alt="Computer Laboratory Monitoring System screenshot">
+                        <span class="project-category">Web development</span>
+                    </div>
+                    <div class="project-details">
+                        <h3>Computer Laboratory Monitoring System</h3>
+                        <p>
+                            Tracks how many users are in a computer lab, how long each
+                            one stayed, and the condition of every computer.
+                        </p>
+                        <a href="#" target="_blank" rel="noopener">View project</a>
+                    </div>
+                </article>
+
+                <article class="project-card design">
+                    <div class="project-image">
+                        <img src="asset/project2.png" alt="Project two screenshot">
+                        <span class="project-category">UI / UX design</span>
+                    </div>
+                    <div class="project-details">
+                        <h3>Project Name Two</h3>
+                        <p>Explain what you designed and which tools you used.</p>
+                        <a href="#" target="_blank" rel="noopener">View project</a>
+                    </div>
+                </article>
+
+                <article class="project-card app">
+                    <div class="project-image">
+                        <img src="asset/project3.png" alt="Project three screenshot">
+                        <span class="project-category">Application development</span>
+                    </div>
+                    <div class="project-details">
+                        <h3>Project Name Three</h3>
+                        <p>Describe your contribution, the features, and what you learned.</p>
+                        <a href="#" target="_blank" rel="noopener">View project</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact-section" id="contact">
+
+        <div class="contact-box">
+            <h2>Have an idea? Let's build it.</h2>
+
+            <p>
+                I'm open for collaborations, and good conversations.
+                Send me a message and I'll reply as soon as I can.
+            </p>
+
+            <a href="mailto:your.email@gmail.com" class="btn btn-solid">Send me an email</a>
+
+            <div class="social-links">
+                <a href="#" target="_blank" rel="noopener">Facebook</a>
+                <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="#" target="_blank" rel="noopener">GitHub</a>
+                <a href="#" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </div>
+
+    </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Jared Acuyan. All rights reserved.</p>
+        <a href="#home">Back to top ↑</a>
+    </footer>
+
 </body>
 </html>
