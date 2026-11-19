@@ -720,6 +720,52 @@ footer a:hover { color: var(--sky); }
     section { scroll-margin-top: var(--header-h); }
 }
 
+/* ================= SKILLS + TOOLS: TWO COLUMNS ================= */
+.skills-columns {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;     /* skills on the left, tools on the right */
+    gap: 48px;
+    align-items: start;
+}
+
+.col-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sky);
+}
+.col-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+/* left column: skill sets */
+.skillset-list { list-style: none; display: grid; gap: 12px; }
+.skillset {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 18px 22px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+.skillset:hover, .skillset:focus-visible {
+    transform: translateX(6px);
+    border-color: var(--sky);
+    box-shadow: 0 14px 40px rgba(56,189,248,.14);
+}
+.skillset-no { font: 500 14px/1.9 var(--mono); color: var(--sky); }
+.skillset h4 { font-family: var(--display); font-size: 18px; font-weight: 700; line-height: 1.25; }
+.skillset p { margin-top: 2px; color: var(--muted); font-size: 14px; }
+
+/* right column: tools are the same cards, now two per row */
+.tools-col .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
 /* ================= SHORT LAPTOP SCREENS ================= */
 @media (min-width: 961px) and (max-height: 720px) {
     .hero { padding-top: 24px; padding-bottom: 56px; }
@@ -733,6 +779,12 @@ footer a:hover { color: var(--sky); }
     .section-heading p { margin-top: 8px; font-size: 14px; }
     .skill-card { padding: 16px 20px; }
     .bar { margin-top: 12px; }
+    .col-title { margin-bottom: 12px; }
+    .skillset { padding: 10px 18px; }
+    .skillset-list { gap: 8px; }
+    .skillset p { font-size: 13px; }
+    .skillset h4 { font-size: 17px; }
+    .skills-section .section-heading { margin-bottom: 14px; }
     .contact-box { padding: 40px 40px; }
 }
 
@@ -741,6 +793,7 @@ footer a:hover { color: var(--sky); }
     .hero { flex-direction: column; align-items: flex-start; min-height: auto; padding-top: 56px; gap: 80px; }
     .hero-visual { align-self: center; }
     .skills-section, .projects-section, .contact-section { min-height: auto; }
+    .skills-columns { grid-template-columns: 1fr; gap: 36px; }
     .projects-section { height: auto; padding-top: 56px; padding-bottom: 56px; }
     .projects-wrap { display: block; }
     .projects-grid { grid-template-rows: none; }

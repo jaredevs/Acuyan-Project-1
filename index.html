@@ -129,58 +129,105 @@
     </section>
 
 
-    <!-- ============ SKILLS ============ -->
+    <!-- ============ SKILLS AND TOOLS (two columns) ============ -->
     <section class="section skills-section" id="skills">
 
         <div class="section-heading">
-            <h2>Skills and tools</h2>
-            <p>What I use to bring ideas to life. Hover or tap a card to see it light up.</p>
+            <h2>Skills and Tools</h2>
+            <p>What I can do, and what I use to bring ideas to life.</p>
         </div>
 
-        <!-- Adjust each --lvl value (0% to 100%) to match your real comfort level -->
-        <div class="skills-grid">
+        <div class="skills-columns">
 
-            <article class="skill-card" tabindex="0">
-                <span class="skill-icon">&lt;/&gt;</span>
-                <h3>HTML</h3>
-                <p>Web structure</p>
-                <div class="bar" style="--lvl:90%"></div>
-            </article>
+            <!-- LEFT COLUMN: skill sets.
+                 The titles and descriptions below are placeholders. Edit them, or copy a whole
+                 <li class="skillset">...</li> block to add one, or delete a block to remove one. -->
+            <div class="skills-col">
+                <h3 class="col-title">Skills</h3>
 
-            <article class="skill-card" tabindex="0">
-                <span class="skill-icon">{ }</span>
-                <h3>CSS</h3>
-                <p>Web styling</p>
-                <div class="bar" style="--lvl:85%"></div>
-            </article>
+                <ul class="skillset-list">
+                    <li class="skillset" tabindex="0">
+                        <span class="skillset-no">01</span>
+                        <div>
+                            <h4>Front-end development</h4>
+                            <p>Building responsive, clean web pages and interfaces.</p>
+                        </div>
+                    </li>
+                    <li class="skillset" tabindex="0">
+                        <span class="skillset-no">02</span>
+                        <div>
+                            <h4>UI / UX design</h4>
+                            <p>Designing layouts that look good and are easy to use.</p>
+                        </div>
+                    </li>
+                    <li class="skillset" tabindex="0">
+                        <span class="skillset-no">03</span>
+                        <div>
+                            <h4>Programming and problem solving</h4>
+                            <p>Breaking problems into logic and turning them into working code.</p>
+                        </div>
+                    </li>
+                    <li class="skillset" tabindex="0">
+                        <span class="skillset-no">04</span>
+                        <div>
+                            <h4>Graphic design</h4>
+                            <p>Creating visuals and edits for projects and layouts.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
-            <article class="skill-card" tabindex="0">
-                <span class="skill-icon">JS</span>
-                <h3>JavaScript</h3>
-                <p>Web interactivity</p>
-                <div class="bar" style="--lvl:70%"></div>
-            </article>
+            <!-- RIGHT COLUMN: tools (same cards as before) -->
+            <div class="skills-col tools-col">
+                <h3 class="col-title">Tools</h3>
 
-            <article class="skill-card" tabindex="0">
-                <span class="skill-icon">C+</span>
-                <h3>C++</h3>
-                <p>Programming</p>
-                <div class="bar" style="--lvl:70%"></div>
-            </article>
+                <!-- Adjust each --lvl value (0% to 100%) to match your real comfort level -->
+                <div class="skills-grid">
 
-            <article class="skill-card" tabindex="0">
-                <span class="skill-icon">AP</span>
-                <h3>Adobe Photoshop</h3>
-                <p>Graphic designing</p>
-                <div class="bar" style="--lvl:75%"></div>
-            </article>
+                    <article class="skill-card" tabindex="0">
+                        <span class="skill-icon">&lt;/&gt;</span>
+                        <h3>HTML</h3>
+                        <p>Web structure</p>
+                        <div class="bar" style="--lvl:90%"></div>
+                    </article>
 
-            <article class="skill-card" tabindex="0">
-                <span class="skill-icon">Git</span>
-                <h3>Git and GitHub</h3>
-                <p>Version control</p>
-                <div class="bar" style="--lvl:65%"></div>
-            </article>
+                    <article class="skill-card" tabindex="0">
+                        <span class="skill-icon">{ }</span>
+                        <h3>CSS</h3>
+                        <p>Web styling</p>
+                        <div class="bar" style="--lvl:85%"></div>
+                    </article>
+
+                    <article class="skill-card" tabindex="0">
+                        <span class="skill-icon">JS</span>
+                        <h3>JavaScript</h3>
+                        <p>Web interactivity</p>
+                        <div class="bar" style="--lvl:70%"></div>
+                    </article>
+
+                    <article class="skill-card" tabindex="0">
+                        <span class="skill-icon">C+</span>
+                        <h3>C++</h3>
+                        <p>Programming</p>
+                        <div class="bar" style="--lvl:70%"></div>
+                    </article>
+
+                    <article class="skill-card" tabindex="0">
+                        <span class="skill-icon">AP</span>
+                        <h3>Adobe Photoshop</h3>
+                        <p>Graphic designing</p>
+                        <div class="bar" style="--lvl:75%"></div>
+                    </article>
+
+                    <article class="skill-card" tabindex="0">
+                        <span class="skill-icon">Git</span>
+                        <h3>Git and GitHub</h3>
+                        <p>Version control</p>
+                        <div class="bar" style="--lvl:65%"></div>
+                    </article>
+
+                </div>
+            </div>
 
         </div>
 
@@ -267,11 +314,11 @@
                 Send me a message and I'll reply as soon as I can.
             </p>
 
-            <a href="mailto:your.email@gmail.com" class="btn btn-solid">Send me an email</a>
+            <a href="https://mail.google.com/mail/u/0/" class="btn btn-solid">Send me an email</a>
 
             <div class="social-links">
                 <a href="https://www.facebook.com/reddispula">Facebook</a>
-                <a href="#" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/jaredevs">GitHub</a>
                 <a href="https://www.instagram.com/redsready?jplx=MXR0dHI0dXMybzFsNA==">Instagram</a>
             </div>
         </div>
