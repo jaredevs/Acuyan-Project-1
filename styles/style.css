@@ -11,6 +11,7 @@
     --muted: #8296a6;
     --line: rgba(56, 189, 248, 0.16);
     --glow: rgba(56, 189, 248, 0.35);
+    --header-h: 72px;          /* fixed header height, so every section can fit the screen exactly */
 
     --display: 'Bricolage Grotesque', system-ui, sans-serif;
     --body: 'Figtree', system-ui, sans-serif;
@@ -174,23 +175,23 @@ header::after {
 /* ================= HERO ================= */
 .hero {
     max-width: 1200px;
-    min-height: 700px;
+    min-height: calc(100svh - var(--header-h));   /* fills the screen under the sticky header */
     margin: auto;
-    padding: 90px 40px 110px;
+    padding: 40px 40px 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 70px;
+    gap: 48px;
 }
 
-.hero-content { max-width: 620px; }
+.hero-content { flex: 1; max-width: 680px; }
 
 .status {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     padding: 7px 14px;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
     border: 1px solid var(--line);
     border-radius: 999px;
     background: var(--panel);
@@ -211,16 +212,19 @@ header::after {
 
 .hero h1 {
     font-family: var(--display);
-    font-size: clamp(44px, 6.4vw, 80px);
+    font-size: clamp(36px, 5vw, 64px);
     font-weight: 800;
     line-height: 1.04;
-    letter-spacing: -2.5px;
-    margin-bottom: 26px;
+    letter-spacing: -2px;
+    margin-bottom: 18px;
 }
 
 /* the memorable moment: the second line is outlined, then fills with sky blue on hover */
 .line-sky {
     display: block;
+    font-size: .74em;          /* smaller so it fits in one or two lines */
+    letter-spacing: -1.5px;
+    text-wrap: balance;
     color: transparent;
     -webkit-text-stroke: 1.5px var(--sky);
     transition: color .4s, text-shadow .4s;
@@ -233,33 +237,35 @@ header::after {
 .hero-description {
     max-width: 480px;
     color: var(--muted);
-    font-size: 17px;
+    font-size: 16px;
 }
 
-.hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
 
 .hero-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px 50px;
-    margin-top: 56px;
-    padding-top: 26px;
+    gap: 12px 44px;
+    margin-top: 34px;
+    padding-top: 20px;
     border-top: 1px solid var(--line);
 }
 .hero-info dt { font-size: 13px; color: var(--muted); }
 .hero-info dd { margin-top: 2px; font-weight: 500; }
 
-/* ---- hero visual ---- */
+/* ---- hero visual: everything scales from one height variable ---- */
 .hero-visual {
+    --ph: clamp(300px, 62vh, 440px);   /* photo height follows screen height */
+    --pw: calc(var(--ph) * .773);      /* photo width keeps the same proportions */
     position: relative;
-    width: 340px;
+    width: var(--pw);
     flex-shrink: 0;
 }
 
 .photo-frame {
     position: relative;
-    height: 440px;
-    border-radius: 170px 170px 16px 16px;
+    height: var(--ph);
+    border-radius: calc(var(--pw) / 2) calc(var(--pw) / 2) 16px 16px;
     padding: 6px;
     background: linear-gradient(160deg, var(--sky), transparent 55%);
     box-shadow: 0 0 80px rgba(56,189,248,.18);
@@ -270,7 +276,7 @@ header::after {
 .photo-frame img {
     width: 100%; height: 100%;
     object-fit: cover;
-    border-radius: 164px 164px 12px 12px;
+    border-radius: calc(var(--pw) / 2 - 6px) calc(var(--pw) / 2 - 6px) 12px 12px;
     background: var(--panel);
     filter: grayscale(30%) contrast(1.05);
     transition: filter .5s;
@@ -279,9 +285,9 @@ header::after {
 
 .code-window {
     position: absolute;
-    left: -110px;
-    bottom: -34px;
-    width: 300px;             /* was 280px: wide enough for the longest line (31ch) */
+    left: -150px;             /* overlaps only the photo's bottom-left corner */
+    bottom: -28px;
+    width: 290px;
     background: rgba(8, 11, 16, .94);
     border: 1px solid var(--line);
     border-radius: 12px;
@@ -327,10 +333,10 @@ header::after {
 .section {
     max-width: 1200px;
     margin: auto;
-    padding: 100px 40px;
+    padding: 80px 40px;
 }
 
-.section-heading { margin-bottom: 50px; max-width: 560px; }
+.section-heading { margin-bottom: 40px; max-width: 560px; }
 .section-heading h2 {
     font-family: var(--display);
     font-size: clamp(34px, 5vw, 52px);
@@ -394,7 +400,7 @@ header::after {
 .about-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 80px;
+    margin-top: 56px;
     border: 1px solid var(--line);
     border-radius: 14px;
     overflow: hidden;
@@ -632,10 +638,115 @@ footer p, footer a { font-size: 13px; color: var(--muted); }
 footer a { transition: color .25s; }
 footer a:hover { color: var(--sky); }
 
+/* ================= FIT-TO-SCREEN SECTIONS (skills, projects, contact) ================= */
+.skills-section, .projects-section, .contact-section {
+    min-height: calc(100svh - var(--header-h));   /* each section fills one screen, content centered */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skills-section .section-heading,
+.projects-section .section-heading { max-width: 640px; margin-bottom: 26px; }
+.skills-section .section-heading h2,
+.projects-section .section-heading h2 { font-size: clamp(30px, 4vw, 44px); }
+
+/* skills: compact horizontal cards so all six fit on one screen */
+.skills-grid { gap: 14px; }
+.skill-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 16px;
+    align-items: center;
+    padding: 20px 22px;
+}
+.skill-icon { grid-row: 1 / span 2; margin-bottom: 0; }
+.skill-card h3 { grid-column: 2; font-size: 18px; line-height: 1.25; }
+.skill-card p { grid-column: 2; }
+.bar { grid-column: 1 / -1; margin-top: 16px; }
+
+/* projects: image height follows screen height */
+.projects-wrap { position: relative; }
+.filters { margin-bottom: 22px; }
+.projects-grid { gap: 20px; }
+.project-image { height: clamp(120px, 24vh, 200px); }
+.project-details { padding: 18px 20px 20px; }
+.project-details h3 { font-size: 18px; margin-bottom: 8px; }
+.project-details p {
+    margin-bottom: 14px;
+    font-size: 13.5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* contact: smaller box so heading, button and links fit together */
+.contact-box { padding: 56px 40px; }
+.contact-box h2 {
+    max-width: 18ch;
+    margin-bottom: 16px;
+    font-size: clamp(30px, 4.6vw, 50px);
+}
+.contact-box > p { margin-bottom: 24px; }
+.social-links { margin-top: 30px; }
+
+/* projects: locked to one screen; the card images flex to use whatever height is left */
+.projects-section {
+    height: clamp(480px, calc(100svh - var(--header-h)), 780px);
+    min-height: 0;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    justify-content: flex-start;
+}
+.projects-section .section-heading { margin-bottom: 16px; }
+.projects-section .section-heading h2 { font-size: clamp(28px, 3.6vw, 40px); }
+.projects-section .section-heading p { margin-top: 6px; font-size: 14px; }
+
+.projects-wrap { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.filters { align-self: flex-start; flex-shrink: 0; margin-bottom: 16px; }
+.projects-grid { flex: 0 1 auto; min-height: 0; align-items: start; }
+.project-card { display: flex; flex-direction: column; min-height: 0; }
+.project-image { flex: none; height: clamp(90px, calc(100svh - 445px), 300px); min-height: 0; }   /* same height on every card */
+.project-details { flex: none; padding: 14px 18px 16px; }
+.project-details h3 { font-size: 17px; margin-bottom: 6px; min-height: 2.5em; }   /* room for 2 lines so cards match */
+.project-details p { font-size: 13px; margin-bottom: 10px; -webkit-line-clamp: 2; }
+
+/* header locked to one height on desktop so the "one screen" sections line up exactly */
+@media (min-width: 721px) {
+    .navbar { height: var(--header-h); padding-top: 0; padding-bottom: 0; }
+    section { scroll-margin-top: var(--header-h); }
+}
+
+/* ================= SHORT LAPTOP SCREENS ================= */
+@media (min-width: 961px) and (max-height: 720px) {
+    .hero { padding-top: 24px; padding-bottom: 56px; }
+    .hero h1 { font-size: clamp(34px, 4.6vw, 56px); }
+    .hero-info { margin-top: 26px; }
+    .code-window pre { font-size: 11.5px; line-height: 1.7; padding: 12px 14px 14px; }
+
+    .skills-section, .projects-section, .contact-section { padding-top: 28px; padding-bottom: 28px; }
+    .skills-section .section-heading,
+    .projects-section .section-heading { margin-bottom: 18px; }
+    .section-heading p { margin-top: 8px; font-size: 14px; }
+    .skill-card { padding: 16px 20px; }
+    .bar { margin-top: 12px; }
+    .contact-box { padding: 40px 40px; }
+}
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 960px) {
-    .hero { flex-direction: column; align-items: flex-start; padding-top: 70px; gap: 90px; }
+    .hero { flex-direction: column; align-items: flex-start; min-height: auto; padding-top: 56px; gap: 80px; }
     .hero-visual { align-self: center; }
+    .skills-section, .projects-section, .contact-section { min-height: auto; }
+    .projects-section { height: auto; padding-top: 56px; padding-bottom: 56px; }
+    .projects-wrap { display: block; }
+    .projects-grid { grid-template-rows: none; }
+    .project-card { display: block; }
+    .project-image { height: 190px; }
+    .project-details p { -webkit-line-clamp: 3; }
     .about-content { grid-template-columns: 1fr; gap: 28px; }
     .skills-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -667,13 +778,11 @@ footer a:hover { color: var(--sky); }
     #menu:checked ~ .navbar .nav-links { display: flex; }
     .nav-links a { padding: 14px 4px; border-top: 1px solid var(--line); }
 
-    .hero { padding: 60px 22px 90px; }
-    .hero-visual { width: 270px; }
-    .photo-frame { height: 350px; border-radius: 135px 135px 14px 14px; }
-    .photo-frame img { border-radius: 129px 129px 10px 10px; }
-    .code-window { left: -20px; bottom: -50px; width: 275px; }   /* was 250px: too narrow for the 31ch line */
+    .hero { padding: 48px 22px 90px; }
+    .hero-visual { --ph: 350px; }
+    .code-window { left: -20px; bottom: -50px; width: 275px; }
 
-    .section { padding: 76px 22px; }
+    .section { padding: 64px 22px; }
     .about-banner { max-width: 220px; margin-bottom: 20px; }
     .about-stats { grid-template-columns: 1fr; }
     .stat { border-right: 0; border-bottom: 1px solid var(--line); }
