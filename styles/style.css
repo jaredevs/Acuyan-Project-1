@@ -1,4 +1,4 @@
-/* ================= TOKENS ================= */
+/*  TOKENS */
 :root {
     --black: #000;
     --bg: #000;
@@ -12,27 +12,27 @@
     --muted: #8296a6;
     --line: rgba(56, 189, 248, 0.16);
     --glow: rgba(56, 189, 248, 0.35);
-    --on-sky: #000;                       /* text color on sky-blue buttons */
+    --on-sky: #000;                       /* sky-blue buttons */
     --header-bg: rgba(0, 0, 0, 0.78);
     --chip-bg: rgba(0, 0, 0, 0.8);
     --code-bg: rgba(8, 11, 16, .94);
     --code-str: #a5e6ff;
     --dot: #243241;
     --shadow: rgba(0, 0, 0, .7);
-    --header-h: 72px;          /* fixed header height, so every section can fit the screen exactly */
+    --header-h: 72px;          /* fixed header height */
 
     --display: 'Bricolage Grotesque', system-ui, sans-serif;
     --body: 'Figtree', system-ui, sans-serif;
     --mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
-/* ===== LIGHT MODE: checkbox checked => swap the tokens ===== */
+/*  LIGHT MODE */
 :root:has(#theme:checked) {
-    --bg: #dce6ee;                         /* soft blue-grey instead of near-white */
+    --bg: #dce6ee;                         
     --ink: #d2dee8;
-    --panel: #e9f0f6;                      /* cards sit slightly lighter than the page, never pure white */
+    --panel: #e9f0f6;                    
     --panel-2: #cddae5;
-    --sky: #0369a1;                        /* deeper sky blue: readable on the softer background */
+    --sky: #0369a1;                       
     --sky-soft: #075985;
     --sky-deep: #0c4a6e;
     --text: #13202b;
@@ -70,7 +70,7 @@ body {
     background-attachment: scroll;
 }
 
-body::before {            /* fades the grid out toward the bottom of the viewport */
+body::before {            
     content: "";
     position: fixed;
     inset: 0;
@@ -89,7 +89,7 @@ section { scroll-margin-top: 90px; }
     border-radius: 4px;
 }
 
-/* ================= NAVIGATION ================= */
+/*  NAV*/
 header {
     position: sticky;
     top: 0;
@@ -99,7 +99,7 @@ header {
     border-bottom: 1px solid var(--line);
 }
 
-/* reading-progress bar driven by scroll (modern browsers; harmless elsewhere) */
+/* reading-progress bar */
 header::after {
     content: "";
     position: absolute;
@@ -151,7 +151,7 @@ header::after {
     color: var(--muted);
     transition: color .25s;
 }
-.nav-links a::after {      /* underline that grows from the center */
+.nav-links a::after {      
     content: "";
     position: absolute;
     left: 50%; bottom: 2px;
@@ -179,8 +179,8 @@ header::after {
 
 .menu-toggle, .burger { display: none; }
 
-/* ================= THEME TOGGLE ================= */
-.theme-toggle {              /* visually hidden but still keyboard-focusable */
+/*  THEME TOGGLE  */
+.theme-toggle {             
     position: absolute;
     opacity: 0;
     width: 1px; height: 1px;
@@ -212,7 +212,7 @@ header::after {
 
 #theme:focus-visible ~ .navbar .theme-btn { outline: 2px solid var(--sky); outline-offset: 3px; }
 
-/* ================= BUTTONS ================= */
+/* BUTTONS */
 .btn {
     display: inline-block;
     padding: 14px 26px;
@@ -235,10 +235,10 @@ header::after {
 .btn-ghost { border: 1px solid var(--line); }
 .btn-ghost:hover { border-color: var(--sky); color: var(--sky-soft); background: rgba(56,189,248,.07); }
 
-/* ================= HERO ================= */
+/*  HERO  */
 .hero {
     max-width: 1200px;
-    min-height: calc(100svh - var(--header-h));   /* fills the screen under the sticky header */
+    min-height: calc(100svh - var(--header-h));   
     margin: auto;
     padding: 40px 40px 70px;
     display: flex;
@@ -282,10 +282,10 @@ header::after {
     margin-bottom: 18px;
 }
 
-/* the memorable moment: the second line is outlined, then fills with sky blue on hover */
+
 .line-sky {
     display: block;
-    font-size: .74em;          /* smaller so it fits in one or two lines */
+    font-size: .74em;          
     letter-spacing: -1.5px;
     text-wrap: balance;
     color: transparent;
@@ -316,10 +316,10 @@ header::after {
 .hero-info dt { font-size: 13px; color: var(--muted); }
 .hero-info dd { margin-top: 2px; font-weight: 500; }
 
-/* ---- hero visual: everything scales from one height variable ---- */
+/* ---- hero visual */
 .hero-visual {
-    --ph: clamp(300px, 62vh, 440px);   /* photo height follows screen height */
-    --pw: calc(var(--ph) * .773);      /* photo width keeps the same proportions */
+    --ph: clamp(300px, 62vh, 440px);   
+    --pw: calc(var(--ph) * .773);     
     position: relative;
     width: var(--pw);
     flex-shrink: 0;
@@ -348,7 +348,7 @@ header::after {
 
 .code-window {
     position: absolute;
-    left: -150px;             /* overlaps only the photo's bottom-left corner */
+    left: -150px;             
     bottom: -28px;
     width: 290px;
     background: var(--code-bg);
@@ -375,7 +375,7 @@ header::after {
 .code-window pre {
     padding: 16px 16px 18px;
     font: 12.5px/1.8 var(--mono);
-    white-space: normal;      /* keeps stray newlines from adding blank lines */
+    white-space: normal;      
 }
 .ln {
     display: block;
@@ -388,11 +388,11 @@ header::after {
 .ln b { font-weight: 400; }
 .k { color: var(--sky); }
 .s { color: var(--code-str); }
-/* cursor starts after the last line finishes typing (last --d is 5.8s + 1s) */
+
 .ln.last::after { content: "▌"; color: var(--sky); animation: blink 1s steps(2) infinite 6.8s; }
 @keyframes blink { 50% { opacity: 0; } }
 
-/* ================= SECTIONS ================= */
+/*  SECTIONS */
 .section {
     max-width: 1200px;
     margin: auto;
@@ -409,7 +409,7 @@ header::after {
 }
 .section-heading p { margin-top: 14px; color: var(--muted); }
 
-/* ================= ABOUT ================= */
+/* ABOUT */
 .about-section .section-heading { margin-bottom: 28px; }   /* gap between "About me" and the image */
 
 .about-banner {
@@ -480,7 +480,7 @@ header::after {
 .stat h3 span { color: var(--sky); }
 .stat p { margin-top: 8px; color: var(--muted); font-size: 14px; }
 
-/* ================= SKILLS ================= */
+/* SKILLS*/
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -556,7 +556,7 @@ header::after {
 }
 @keyframes fill { from { width: 0; } }
 
-/* ================= PROJECTS ================= */
+/*  PROJECTS  */
 .projects-wrap input { position: absolute; opacity: 0; pointer-events: none; }
 
 .filters {
@@ -640,7 +640,7 @@ header::after {
 .project-details a::after { content: " ↗"; }
 .project-details a:hover { color: var(--sky-soft); letter-spacing: .5px; }
 
-/* ================= CONTACT ================= */
+/* CONTACT  */
 .contact-box {
     position: relative;
     padding: 90px 40px;
@@ -653,7 +653,7 @@ header::after {
         var(--panel);
     isolation: isolate;
 }
-.contact-box::before {        /* slow-turning sky-blue ring */
+.contact-box::before {        
     content: "";
     position: absolute;
     width: 520px; height: 520px;
@@ -688,7 +688,7 @@ header::after {
 }
 .social-links a:hover { color: var(--sky-soft); border-color: var(--sky); background: rgba(56,189,248,.08); transform: translateY(-3px); }
 
-/* ================= FOOTER ================= */
+/*  FOOTER  */
 footer {
     max-width: 1200px;
     margin: auto;
@@ -701,7 +701,7 @@ footer p, footer a { font-size: 13px; color: var(--muted); }
 footer a { transition: color .25s; }
 footer a:hover { color: var(--sky); }
 
-/* ================= FIT-TO-SCREEN SECTIONS (skills, projects, contact) ================= */
+
 .skills-section, .projects-section, .contact-section {
     min-height: calc(100svh - var(--header-h));   /* each section fills one screen, content centered */
     padding-top: 40px;
@@ -746,7 +746,7 @@ footer a:hover { color: var(--sky); }
     overflow: hidden;
 }
 
-/* contact: smaller box so heading, button and links fit together */
+
 .contact-box { padding: 56px 40px; }
 .contact-box h2 {
     max-width: 18ch;
@@ -756,7 +756,7 @@ footer a:hover { color: var(--sky); }
 .contact-box > p { margin-bottom: 24px; }
 .social-links { margin-top: 30px; }
 
-/* projects: locked to one screen; the card images flex to use whatever height is left */
+
 .projects-section {
     height: clamp(480px, calc(100svh - var(--header-h)), 780px);
     min-height: 0;
@@ -783,10 +783,10 @@ footer a:hover { color: var(--sky); }
     section { scroll-margin-top: var(--header-h); }
 }
 
-/* ================= SKILLS + TOOLS: TWO COLUMNS ================= */
+/*  SKILLS + TOOLS: TWO COLUMNS  */
 .skills-columns {
     display: grid;
-    grid-template-columns: 1fr 1.35fr;     /* skills on the left, tools on the right */
+    grid-template-columns: 1fr 1.35fr;     
     gap: 48px;
     align-items: start;
 }
@@ -851,7 +851,7 @@ footer a:hover { color: var(--sky); }
     .contact-box { padding: 40px 40px; }
 }
 
-/* ================= RESPONSIVE ================= */
+/*  RESPONSIVE  */
 @media (max-width: 960px) {
     .hero { flex-direction: column; align-items: flex-start; min-height: auto; padding-top: 56px; gap: 80px; }
     .hero-visual { align-self: center; }
@@ -870,7 +870,7 @@ footer a:hover { color: var(--sky); }
 @media (max-width: 720px) {
     .navbar { padding: 14px 22px; flex-wrap: wrap; }
     .nav-button { display: none; }
-    .nav-right { order: 1; margin-left: auto; }   /* theme button stays visible, next to the burger */
+    .nav-right { order: 1; margin-left: auto; }   
     .burger    { order: 2; }
     .nav-links { order: 3; }
 
@@ -917,7 +917,7 @@ footer a:hover { color: var(--sky); }
     .skills-grid { grid-template-columns: 1fr; }
 }
 
-/* ================= ACCESSIBILITY ================= */
+/*  ACCESSIBILITY*/
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
