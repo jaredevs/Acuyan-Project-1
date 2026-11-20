@@ -449,7 +449,7 @@ header::after {
 }
 .about-left, .about-right { min-width: 0; }
 
-/* the HTML uses an <h2> here, so style both h2 and h3 */
+
 .about-left h2,
 .about-left h3 {
     font-family: var(--display);
@@ -509,7 +509,7 @@ header::after {
     overflow: hidden;
     transition: transform .3s, border-color .3s, box-shadow .3s;
 }
-.skill-card::before {        /* light sweep across the card */
+.skill-card::before {      
     content: "";
     position: absolute;
     top: 0; left: -80%;
@@ -774,7 +774,7 @@ footer a:hover { color: var(--sky); }
 
 
 .projects-section {
-    /* min-height (not height) so the section grows if text wraps, instead of overlapping the next one */
+    
     min-height: clamp(480px, calc(100svh - var(--header-h)), 780px);
     padding-top: 28px;
     padding-bottom: 28px;
@@ -788,12 +788,12 @@ footer a:hover { color: var(--sky); }
 .filters { align-self: flex-start; flex-shrink: 0; margin-bottom: 16px; }
 .projects-grid { flex: 0 1 auto; min-height: 0; align-items: start; }
 .project-card { display: flex; flex-direction: column; min-height: 0; }
-.project-image { flex: none; height: clamp(90px, calc(100svh - 445px), 300px); min-height: 0; }   /* same height on every card */
+.project-image { flex: none; height: clamp(90px, calc(100svh - 445px), 300px); min-height: 0; }   
 .project-details { flex: none; padding: 14px 18px 16px; }
-.project-details h3 { font-size: 17px; margin-bottom: 6px; min-height: 2.5em; }   /* room for 2 lines so cards match */
+.project-details h3 { font-size: 17px; margin-bottom: 6px; min-height: 2.5em; }   
 .project-details p { font-size: 13px; margin-bottom: 10px; -webkit-line-clamp: 2; }
 
-/* header locked to one height on desktop so the "one screen" sections line up exactly */
+
 @media (min-width: 721px) {
     .navbar { height: var(--header-h); padding-top: 0; padding-bottom: 0; }
     section { scroll-margin-top: var(--header-h); }
@@ -887,7 +887,7 @@ footer a:hover { color: var(--sky); }
 @media (max-width: 960px) {
     .hero { flex-direction: column; align-items: flex-start; min-height: auto; padding-top: 56px; gap: 40px; }
 
-    /* photo on top, code window underneath: nothing overlaps or gets cut off */
+  
     .hero-visual {
         align-self: center;
         width: auto;
@@ -943,7 +943,7 @@ footer a:hover { color: var(--sky); }
         width: 100%;
         gap: 0;
         padding-top: 10px;
-        max-height: calc(100svh - 80px);   /* open menu stays scrollable on short / landscape phones */
+        max-height: calc(100svh - 80px);   
         overflow-y: auto;
     }
     #menu:checked ~ .navbar .nav-links { display: flex; }
@@ -966,7 +966,7 @@ footer a:hover { color: var(--sky); }
     .stat h3 { font-size: 40px; }
     .skills-grid { gap: 12px; }
     .skill-card { padding: 22px 18px; }
-    .skillset:hover, .skillset:focus-visible { transform: none; }   /* no sideways shove on touch */
+    .skillset:hover, .skillset:focus-visible { transform: none; }   
     .filters { max-width: 100%; overflow-x: auto; }
     .filters label { padding: 8px 16px; white-space: nowrap; }
     .projects-grid { grid-template-columns: 1fr; }
@@ -978,7 +978,7 @@ footer a:hover { color: var(--sky); }
     footer { flex-direction: column; gap: 10px; text-align: center; padding: 26px 22px; }
 }
 
-/* small phones: tools go one per row so icon, title and bar never get squeezed */
+
 @media (max-width: 560px) {
     .tools-col .skills-grid { grid-template-columns: 1fr; }
     .skillset { gap: 14px; padding: 16px; }
